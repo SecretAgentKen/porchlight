@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: porchlight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: porchlight
+  template:
+    metadata:
+      labels:
+        app: porchlight
+    spec:
+      containers:
+        - name: porchlight-container
+          image: "localhost/porchlight:latest"
+          imagePullPolicy: Never
+          env:
+            - name: "HOST"
+              value: {{ .Values.host }}
+            - name: "CHECK_INTERVAL"
+              value: {{ quote .Values.check_interval }}
+            - name: "SUNSET_PRE"
+              value: {{ quote .Values.sunset_pre_on }}
+            - name: "SUNRISE_POST"
+              value: {{ quote .Values.sunrise_post_off }}
+            - name: "LATITUDE"
+              value: {{ quote .Values.latitude }}
+            - name: "LONGITUDE"
+              value: {{ quote .Values.longitude }}

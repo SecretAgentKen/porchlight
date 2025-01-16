@@ -1,0 +1,16 @@
+# Host that controls the light
+host: localhost
+
+# Interval for checking whether to power on/off the light in minutes (Default 10m)
+check_interval: 10
+
+# Time prior to a sunset for powering on the light in minutes (Default 20m)
+sunset_pre_on: 20
+
+# Time after sunrise to power off the light in minutes (Default 20m)
+sunrise_post_off: 20
+
+# Latitude & Longitude (for determining sunrise/sunset)
+latitude: 0.0
+longitude: 0.0
+
