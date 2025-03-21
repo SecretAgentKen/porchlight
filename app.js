@@ -18,6 +18,7 @@ console.log("Host:            ", HOST);
 console.log("Check Interval:  ", INTERVAL_MS, "ms");
 console.log("Sunset prebuff:  ", SUNSETBUFF_S, "s");
 console.log("Sunrise postbuff:", SUNRISEBUFF_S, "s");
+console.log("Lat/Lon:         ", LAT, "/", LON);
 setInterval(updateLight, INTERVAL_MS);
 updateLight();
 

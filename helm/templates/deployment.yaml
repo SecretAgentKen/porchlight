@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: porchlight
+  name: {{ .Release.Name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: porchlight
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: porchlight
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: porchlight-container
-          image: "localhost/porchlight:latest"
-          imagePullPolicy: Never
+        - name: {{ .Release.Name }}-container
+          image: "{{ .Values.hub }}/{{ .Values.image }}:{{ .Values.tag }}"
+          imagePullPolicy: {{ .Values.pull_policy | default "IfNotPresent" }}
           env:
             - name: "HOST"
               value: {{ .Values.host }}

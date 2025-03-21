@@ -3,6 +3,6 @@ name: porchlight
 description: ""
 type: application
 # For chart
-version: 0.3.0
+version: 0.4.0
 # For app
 appVersion: "2.0.0"
